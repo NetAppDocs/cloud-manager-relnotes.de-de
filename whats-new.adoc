@@ -208,6 +208,32 @@ https://docs.netapp.com/us-en/cloud-manager-app-template/concept-tagging.html["E
 
 
 
+=== Bis 6. Dezember 2022
+
+
+
+==== Support der Google Archivspeicher
+
+Sicherungsdateien werden zunächst in der Speicherklasse Google Standard erstellt. Jetzt können Sie ältere Backups nach einer bestimmten Anzahl von Tagen auf Google Archivspeicher verschieben, um die Kosten weiter zu optimieren.
+
+Diese Funktion wird derzeit für ONTAP-Cluster vor Ort mit ONTAP 9.12.1 oder höher unterstützt. Dieses Angebot ist derzeit nicht für Cloud Volumes ONTAP Systeme verfügbar.
+
+
+
+==== Unterstützung für FlexGroup Volumes
+
+Cloud Backup unterstützt jetzt FlexGroup Volumes. Bei Verwendung von ONTAP 9.12.1 oder neuer können Sie FlexGroup Volumes in Public- und Private-Cloud-Storage sichern. Wenn Sie über funktionierende Umgebungen mit FlexVol- und FlexGroup-Volumes verfügen, können Sie nach der Aktualisierung der ONTAP Software jedes der FlexGroup-Volumes auf diesen Systemen sichern.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html#supported-volumes["Die vollständige Liste der unterstützten Volume-Typen finden Sie unter"].
+
+
+
+==== Möglichkeit zur Wiederherstellung von Daten aus Backups in einem bestimmten Aggregat auf Cloud Volumes ONTAP Systemen
+
+In älteren Versionen könnten Sie das Aggregat nur auswählen, wenn Sie Daten in On-Premises-ONTAP-Systemen wiederherstellen. Diese Funktion ist jetzt auch für die Wiederherstellung von Daten auf Cloud Volumes ONTAP Systemen geeignet.
+
+
+
 === November 2022
 
 
@@ -228,7 +254,7 @@ Nun können Sie die Backup-Beziehung für ein Volume löschen. Auf diese Weise e
 
 ==== Unterstützung wurde hinzugefügt, um Cloud Backup-Benachrichtigungen per E-Mail und im Notification Center zu erhalten
 
-Cloud Backup wurde in den BlueXP Notification Service integriert. Sie können Cloud-Backup-Benachrichtigungen anzeigen, indem Sie in der Menüleiste von BlueXP auf die Benachrichtigungsglocke klicken. Außerdem können Sie BlueXP so konfigurieren, dass Benachrichtigungen per E-Mail als Warnungen gesendet werden, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht im System angemeldet sind. Die E-Mail kann an alle Empfänger gesendet werden, die auf Backup- und Wiederherstellungsaktivitäten achten müssen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status["Erfahren Sie, wie"].
+Cloud Backup wurde in den BlueXP Notification Service integriert. Sie können Cloud-Backup-Benachrichtigungen anzeigen, indem Sie in der Menüleiste von BlueXP auf die Benachrichtigungsglocke klicken. Sie können BlueXP auch so konfigurieren, dass Benachrichtigungen per E-Mail als Benachrichtigungen gesendet werden, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht im System angemeldet sind. Die E-Mail kann an alle Empfänger gesendet werden, die auf Backup- und Wiederherstellungsaktivitäten achten müssen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#use-the-job-monitor-to-view-backup-and-restore-job-status["Erfahren Sie, wie"].
 
 
 
@@ -334,52 +360,6 @@ In der Vergangenheit wurde eine auf das ursprüngliche Volume wiederhergestellte
 ==== Per Drag-and-Drop können Sie Cloud-Backups in StorageGRID-Systemen aktivieren
 
 Wenn der https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html["StorageGRID"^] Ziel für Ihre Backups ist als Arbeitsumgebung auf dem Canvas vorhanden, Sie können Ihre On-Prem ONTAP Arbeitsumgebung auf das Ziel ziehen, um den Cloud Backup-Setup-Assistenten zu starten.
-
-
-
-=== 18. August 2022
-
-
-
-==== Der Schutz von Cloud-nativen Applikationsdaten wurde durch zusätzliche Unterstützung hinzugefügt
-
-Cloud Backup für Applikationen ist ein SaaS-basierter Service mit Datensicherungsfunktionen für Applikationen, die auf NetApp Cloud Storage ausgeführt werden. Cloud Backup für Applikationen in BlueXP ermöglicht effizientes, applikationskonsistentes, richtlinienbasiertes Backup und Restore von Oracle Datenbanken in Amazon FSX für NetApp ONTAP.https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-cloud-app-data-to-cloud.html["Weitere Informationen ."^].
-
-
-
-==== Die Suche & Wiederherstellung wird jetzt auch für Backup-Dateien in Azure Blob unterstützt
-
-Die Suchmethode zur Wiederherstellung von Volumes und Dateien steht jetzt für Benutzer zur Verfügung, die ihre Backup-Dateien in Azure Blob Storage speichern. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#prerequisites-2["Erfahren Sie, wie Sie Ihre Volumes und Dateien mithilfe von Search  Restore wiederherstellen wiederherstellen wiederherstellen wiederherstellen"^].
-
-Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit Software der Version 3.9.21 (August 2022) bereitgestellt wird, umfasst diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html#verify-or-add-permissions-to-the-connector["Lesen Sie, wie Sie diese Berechtigungen hinzufügen, falls erforderlich"^].
-
-
-
-==== Wir haben jetzt die Möglichkeit hinzugefügt, Ihre Backup-Dateien vor Löschen und Ransomware-Angriffen zu schützen
-
-Cloud Backup unterstützt jetzt Objekt-Lock-Support für Ransomware-sichere Backups. Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet und Ihr Backup-Ziel Amazon S3 ist, steht jetzt eine neue Backup-Policy-Option namens _DataLock und Ransomware Protection_ zur Verfügung. DataLock schützt Ihre Backup-Dateien vor Änderungen oder Löschung. Ransomware-Schutz scannt Ihre Backup-Dateien, um nach einem Ransomware-Angriff auf Ihre Backup-Dateien zu suchen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection["Erfahren Sie mehr darüber, wie Sie mit DataLock- und Ransomware-Schutz Ihre Backups schützen können"^].
-
-Beachten Sie, dass in der Rolle Connector zusätzliche Berechtigungen erforderlich sind, um diese Funktion nutzen zu können. Ein Connector, der mit der Software Version 3.9.21 bereitgestellt wird, enthält diese Berechtigungen. Wenn Sie den Connector mit einer früheren Version bereitgestellt haben, müssen Sie die Berechtigungen manuell hinzufügen. https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html#set-up-s3-permissions["Lesen Sie, wie Sie diese Berechtigungen hinzufügen, falls erforderlich"^].
-
-
-
-==== Cloud Backup unterstützt jetzt Richtlinien, die mithilfe benutzerdefinierter SnapMirror Labels erstellt werden
-
-Zuvor unterstützte Cloud Backup nur vordefinierte SnapMirror Labels wie stündlich, täglich, wöchentlich, stündlich oder jährlich. Jetzt kann Cloud Backup SnapMirror Richtlinien erkennen, die über individuelle SnapMirror-Labels verfügen, die Sie mit System Manager oder der CLI erstellt haben. Diese neuen Bezeichnungen werden der Cloud Backup-UI ausgesetzt. Damit können Sie Volumes mit dem SnapMirror Label Ihrer Wahl in der Cloud sichern.
-
-
-
-==== Zusätzliche Verbesserung der Backup-Richtlinien für ONTAP Systeme
-
-Einige Seiten der Backup-Richtlinien wurden neu gestaltet, um alle für Volumes in jedem ONTAP Cluster verfügbaren Backup-Richtlinien einfacher anzuzeigen. Dadurch sind die Details der verfügbaren Richtlinien einfacher abrufbar, damit Sie die besten Richtlinien auf Ihren Volumes anwenden können.
-
-
-
-==== Aktivieren Sie Cloud Backup per Drag-and-Drop in Azure Blob und Google Cloud Storage
-
-Wenn der https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-azure-blob.html["Azure Blob"^] Oder https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-viewing-gcp-storage.html["Google Cloud Storage"^] Ziel für Ihre Backups ist als Arbeitsumgebung auf dem Canvas vorhanden. Sie können Ihre On-Prem ONTAP oder Cloud Volumes ONTAP Arbeitsumgebung (installiert in Azure oder GCP) auf das Ziel ziehen, um den Backup-Setup-Assistenten zu starten.
-
-Für Amazon S3 Buckets ist diese Funktion bereits vorhanden.
 
 
 
