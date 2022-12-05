@@ -75,49 +75,6 @@ Cloud Manager fordert Sie jetzt auf, die mit Ihren Accounts der NetApp Support W
 
 
 
-=== 18. September 2022
-
-
-
-==== Anschluss 3.9.22
-
-* Wir haben den Connector Deployment Wizard erweitert, indem wir eine _in-Product Guide_ hinzufügen, die Schritte zur Erfüllung der Mindestanforderungen für die Installation von Konnektor enthält: Berechtigungen, Authentifizierung und Netzwerke.
-* Sie können nun einen NetApp Support-Fall direkt über Cloud Manager im *Support Dashboard* erstellen.
-+
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-get-help.html#netapp-support["Erfahren Sie, wie Sie einen Fall erstellen"].
-
-* Diese Version des Connectors enthält auch Cloud Volumes ONTAP-Verbesserungen.
-+
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#18-september-2022["Erfahren Sie mehr über Verbesserungen bei Cloud Volumes ONTAP"^]
-
-
-
-
-
-=== 31 Juli 2022
-
-
-
-==== Anschluss 3.9.21
-
-* Wir haben eine neue Methode eingeführt, um die vorhandenen Cloud-Ressourcen zu ermitteln, die Sie noch nicht in Cloud Manager verwalten.
-+
-Auf dem Canvas bietet die Registerkarte * My Opportunities* einen zentralen Ort, um vorhandene Ressourcen zu entdecken, die Sie in Cloud Manager hinzufügen können, um konsistente Datenservices und Abläufe in Ihrer gesamten hybriden Multi-Cloud zu erhalten.
-
-+
-In dieser ersten Version können Sie mit My Opportunities vorhandene FSX für ONTAP Dateisysteme in Ihrem AWS-Konto entdecken.
-
-+
-https://docs.netapp.com/us-en/cloud-manager-fsx-ontap/use/task-creating-fsx-working-environment.html#discover-using-my-opportunities["Entdecken Sie FSX für ONTAP mithilfe von My Opportunities"^]
-
-* Diese Version des Connectors enthält auch Cloud Volumes ONTAP-Verbesserungen.
-+
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#31-july-2022["Erfahren Sie mehr über Verbesserungen bei Cloud Volumes ONTAP"^]
-
-
-
-
-
 == Azure NetApp Dateien
 
 
