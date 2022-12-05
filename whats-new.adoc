@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: whats-new.html 
-keywords: 'what"s new, features, new, release notes, enhancements, fixes, new features, cloud, cloud manager, bluexp' 
+keywords: 'what"s new, features, new, release notes, enhancements, fixes, new features, cloud, cloud manager, bluexp, cloud volumes ontap, kubernetes, cloud backup, cloud tiering, data sense, ransomware, connector, amazon fsx for ontap, azure netapp files, cloud sync, e-series, global file cache' 
 summary: Erfahren Sie mehr über die neuesten Änderungen an den Cloud-Services, die Teil der BlueXP Plattform sind. Weitere Informationen finden Sie in den vollständigen Versionshinweisen für jeden einzelnen Service. 
 ---
 = Aktuelle Änderungen in BlueXP
@@ -30,6 +30,24 @@ Cloud Manager wurde am 1. November 2022 in BlueXP umbenannt. https://docs.netapp
 == Administrative Funktionen
 
 In diesem Abschnitt werden neue Funktionen in Bezug auf BlueXP-Verwaltungsfunktionen beschrieben: Konten, Connectors, Anmeldeinformationen für Cloud-Provider und mehr.
+
+
+
+=== Bis 4. Dezember 2022
+
+
+
+==== Anschluss 3.9.24
+
+* Die URL für die BlueXP-Konsole wurde auf aktualisiert https://console.bluexp.netapp.com[]
+* Der Connector wird nun in der Google Cloud Israel Region unterstützt.
+* Diese Version des Connectors enthält außerdem Cloud Volumes ONTAP-Verbesserungen und On-Premises-ONTAP-Cluster-Verbesserungen.
++
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html#4-december-2022["Erfahren Sie mehr über Verbesserungen bei Cloud Volumes ONTAP"^]
+** https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/whats-new.html#4-december-2022["Die ONTAP-On-Premises-Cluster-Verbesserungen"^]
+
+
+
 
 
 
@@ -276,7 +294,7 @@ https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backup-se
 
 ==== Sie können jetzt Backup-Dateien mithilfe von Search & Restore wiederherstellen, wenn Sie einen On-Premises Connector verwenden
 
-In der vorherigen Version wurde beim Einsatz des Connectors in Ihrer Umgebung Unterstützung beim Erstellen von Backup-Dateien in der Public Cloud erhalten. In dieser Version wurde mithilfe von Search & Restore weiterhin Unterstützung für die Wiederherstellung von Backups von Amazon S3 oder Azure Blob ermöglicht, wenn der Connector in Ihrer lokalen Umgebung implementiert wird. Search & Restore unterstützt auch die Wiederherstellung von Backups aus StorageGRID Systemen in ONTAP Systemen vor Ort.
+In der vorherigen Version wurde beim Einsatz des Connectors in Ihrer Umgebung Unterstützung beim Erstellen von Backup-Dateien in der Public Cloud erhalten. In dieser Version wurde mithilfe von Search & Restore weiterhin Unterstützung für die Wiederherstellung von Backups von Amazon S3 oder Azure Blob ermöglicht, wenn der Connector in Ihrer lokalen Umgebung implementiert wird. Search & Restore unterstützt jetzt auch die Wiederherstellung von Backups aus StorageGRID Systemen in ONTAP Systemen vor Ort.
 
 Derzeit muss der Connector in der Google Cloud Platform bereitgestellt werden, wenn Sie Search & Restore verwenden, um Backups von Google Cloud Storage wiederherzustellen.
 
@@ -764,6 +782,24 @@ Lizenzen für Cloud-Tiering können jetzt von Ihren Clustern in MetroCluster Kon
 
 
 
+=== Bis 4. Dezember 2022
+
+Die folgenden Änderungen wurden mit der Version 3.9.24 des Connectors eingeführt.
+
+
+
+==== WORM + Cloud Backup sind jetzt bei der Cloud Volumes ONTAP-Erstellung verfügbar
+
+Im Rahmen der Cloud Volumes ONTAP-Erstellung können DIE Funktionen für WORM (Write Once, Read Many) und Cloud Backup aktiviert werden.
+
+
+
+==== Israel Region jetzt in Google Cloud unterstützt
+
+Die Region Israel wird nun in Google Cloud für Cloud Volumes ONTAP und der Connector für Cloud Volumes ONTAP 9.11.1 P3 und höher unterstützt.
+
+
+
 === 6. November 2022
 
 Die folgenden Änderungen wurden mit der Version 3.9.23 des Connectors eingeführt.
@@ -830,64 +866,6 @@ image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-o
 ==== AutoSupport-Benachrichtigungen
 
 BlueXP generiert jetzt eine Benachrichtigung, wenn ein Cloud Volumes ONTAP System keine AutoSupport-Nachrichten senden kann. Die Benachrichtigung enthält einen Link zu Anweisungen, mit denen Sie Netzwerkprobleme beheben können.
-
-
-
-=== 31 Juli 2022
-
-Die folgenden Änderungen wurden mit der Version 3.9.21 des Connectors eingeführt.
-
-
-
-==== MTEKM-Lizenz
-
-Die MTEKM-Lizenz (Multi-Tenant Encryption Key Management) ist nun in neuen und bestehenden Cloud Volumes ONTAP-Systemen mit Version 9.11.1 oder höher enthalten.
-
-Das mandantenfähige externe Verschlüsselungsmanagement ermöglicht individuelle Storage VMs (SVMs) beim Einsatz von NetApp Volume Encryption, ihre eigenen Schlüssel über einen KMIP Server beizubehalten.
-
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-encrypting-volumes.html["So verschlüsseln Sie Volumes mit NetApp Verschlüsselungslösungen"].
-
-
-
-==== Proxy-Server
-
-BlueXP konfiguriert Ihre Cloud Volumes ONTAP-Systeme jetzt automatisch für die Verwendung des Connectors als Proxyserver, wenn keine ausgehende Internetverbindung zum Senden von AutoSupport-Nachrichten verfügbar ist.
-
-AutoSupport überwacht proaktiv den Zustand Ihres Systems und sendet Meldungen an den technischen Support von NetApp.
-
-Die einzige Anforderung besteht darin, sicherzustellen, dass die Sicherheitsgruppe des Connectors _eingehende_ -Verbindungen über Port 3128 zulässt. Nach der Bereitstellung des Connectors müssen Sie diesen Port öffnen.
-
-
-
-==== Lademethode ändern
-
-Sie können nun die Gebührenmethode für ein Cloud Volumes ONTAP System ändern, das kapazitätsbasierte Lizenzierung nutzt. Wenn Sie beispielsweise ein Cloud Volumes ONTAP-System mit dem Essentials-Paket bereitgestellt haben, können Sie es in das Professional-Paket ändern, wenn sich Ihre Geschäftsanforderungen ändern. Diese Funktion ist über das Digital Wallet verfügbar.
-
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html["Erfahren Sie, wie Sie Lademethoden ändern können"].
-
-
-
-==== Verbesserung von Sicherheitsgruppen
-
-Wenn Sie eine Cloud Volumes ONTAP-Arbeitsumgebung erstellen, können Sie jetzt über die Benutzeroberfläche festlegen, ob die vordefinierte Sicherheitsgruppe nur den Datenverkehr innerhalb des ausgewählten Netzwerks (empfohlen) oder in allen Netzwerken zulassen soll.
-
-image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-allow-traffic.png["Ein Screenshot, in dem die Option Datenverkehr zulassen angezeigt wird, die im Assistenten für die Arbeitsumgebung bei der Auswahl einer Sicherheitsgruppe verfügbar ist."]
-
-
-
-=== 18 Juli 2022
-
-
-
-==== Neue Lizenzierungspakete in Azure
-
-Zwei neue kapazitätsbasierte Lizenzpakete stehen für Cloud Volumes ONTAP in Azure zur Verfügung, wenn diese über ein Azure Marketplace-Abonnement abgerechnet werden:
-
-* * Optimiert*: Bezahlung der bereitgestellten Kapazität und I/O-Operationen separat
-* *Edge Cache*: Lizenzierung für https://cloud.netapp.com/cloud-volumes-edge-cache["Cloud Volumes Edge Cache"^]
-
-
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#packages["Erfahren Sie mehr über diese Lizenzierungspakete"].
 
 
 
@@ -1090,6 +1068,30 @@ Der Überwachungsdienst wurde am 1. November 2022 eingestellt. Sie finden jetzt 
 
 
 
+=== Bis 4. Dezember 2022
+
+Die folgenden Änderungen wurden mit der Version 3.9.24 des Connectors eingeführt.
+
+
+
+==== Neue Möglichkeit zur Erkennung von ONTAP Clustern vor Ort
+
+Sie können Ihre On-Premises-ONTAP-Cluster jetzt direkt über einen Connector erkennen. Diese Option ermöglicht das Cluster Management nur über System Manager. In dieser Arbeitsumgebung können Sie keine BlueXP-Datenservices aktivieren.
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["Erfahren Sie mehr über diese Option zur Erkennung und Verwaltung"].
+
+
+
+==== FlexGroup Volumes
+
+Bei On-Prem-ONTAP-Clustern, die über einen Connector erkannt werden, zeigt die Standardansicht in BlueXP jetzt die FlexGroup-Volumes an, die über den System Manager oder die ONTAP-CLI erstellt wurden. Sie können diese Volumes auch verwalten, indem Sie sie klonen, ihre Einstellungen bearbeiten und löschen.
+
+image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-ontap-onprem/main/media/screenshot-flexgroup-volumes.png["Ein Screenshot, der ein FlexGroup-Volume auf der Seite „Volumes“ für ein ONTAP-Cluster vor Ort zeigt"]
+
+BlueXP unterstützt das Erstellen von FlexGroup Volumes nicht. Zum Erstellen von FlexGroup Volumes müssen Sie weiterhin System Manager oder die CLI verwenden.
+
+
+
 === 18. September 2022
 
 Die folgenden Änderungen wurden mit der Version 3.9.22 des Connectors eingeführt.
@@ -1130,29 +1132,17 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-administer-advance
 
 
 
-=== 27 Februar 2022
-
-
-
-==== Eine Registerkarte „On-Premises ONTAP“ steht im Digital Wallet zur Verfügung.
-
-Sie können sich nun einen Bestand Ihrer lokalen ONTAP Cluster sowie deren Ablaufdatum für Hardware- und Serviceverträge anzeigen lassen. Weitere Details zu den Clustern sind ebenfalls verfügbar.
-
-https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html#viewing-cluster-information-and-contract-details["Diese wichtigen Informationen für On-Premises-Cluster lassen sich anzeigen"]. Sie müssen ein NetApp Support Site Konto (NSS) für die Cluster besitzen, und die NSS-Zugangsdaten müssen an Ihr Cloud Manager Konto angehängt werden.
-
-
-
 == Schutz Vor Ransomware
 
 
 
-=== 7. November 2022
+=== 13. November 2022
 
 
 
 ==== Neue Panels zur Anzeige Ihrer gesamten Ransomware-Schutzpunktzahl und empfohlenen Maßnahmen
 
-Diese beiden neuen Felder arbeiten zusammen, um zu ermitteln, wie stabil Ihre Daten bei einem Ransomware-Angriff ist und was Sie tun können, um Ihren Wert zu verbessern. Die Ransomware Protection Score Panel zeigt die Gesamtpunktzahl und die Bereiche der Cybersicherheit, wo potenzielle Probleme bestehen. Im Bereich Empfohlene Maßnahmen werden die potenziellen Maßnahmen aufgeführt, die Sie ergreifen können, um Ihre Widerstandsfähigkeit gegen einen Ransomware-Angriff zu verbessern. Darüber hinaus erhalten Sie einen Link zur Untersuchung des Problems, damit Sie die Maßnahmen gegebenenfalls anwenden können. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#ransomware-protection-score-and-recommended-actions["Hier erfahren Sie mehr"^].
+Diese beiden neuen Felder arbeiten zusammen, um zu ermitteln, wie stabil Ihre Daten bei einem Ransomware-Angriff ist und was Sie tun können, um Ihren Wert zu verbessern. Das _Ransomware Protection Score_ Panel zeigt die Gesamtpunktzahl und die Bereiche der Cybersicherheit, in denen potenzielle Probleme bestehen. Im Panel _Recommended Actions_ werden die möglichen Maßnahmen aufgeführt, die Sie ergreifen können, um Ihre Widerstandsfähigkeit gegen einen Ransomware-Angriff zu verbessern, und es wird ein Link zur Untersuchung der Probleme angezeigt, damit Sie die Maßnahmen gegebenenfalls anwenden können. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#ransomware-protection-score-and-recommended-actions["Hier erfahren Sie mehr"^].
 
 
 
