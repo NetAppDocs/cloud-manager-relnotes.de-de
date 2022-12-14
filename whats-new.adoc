@@ -367,6 +367,28 @@ Wenn der https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-s
 
 
 
+=== 11. Dezember 2022 (Version 1.18)
+
+
+
+==== Erweiterungen für die Installation vor Ort
+
+Die folgenden Erweiterungen wurden für die On-Prem Data Sense Installation hinzugefügt:
+
+* Einige zusätzliche Voraussetzungen werden jetzt geprüft, bevor die Installation auf einem lokalen Host gestartet wird. Dadurch kann sichergestellt werden, dass Ihr Hostsystem zu 100 % bereit ist, wenn Daten Sense Software installiert wird:
++
+** Testen Sie ausreichend Speicherplatz auf /var/lib/docker, /tmp und /opt
+** Testen Sie die entsprechenden Berechtigungen für alle erforderlichen Ordner
+
+
+* Auf der Seite Konfiguration zeigt jetzt der Abschnitt Arbeitsumgebungen die ID _Arbeitsumgebung_ und den Namen _Scannergruppe_ an. Wenn Sie mehrere Data Sense Hosts verwenden möchten, um zusätzliche Verarbeitungsleistung für das Scannen Ihrer Datenquellen bereitzustellen, müssen Sie die ID der Arbeitsumgebung kennen.
+* Auf der Konfigurationsseite werden in einem neuen Abschnitt die von Ihnen festgelegten Scanner-Gruppen und die Scanner-Nodes in jeder Gruppe angezeigt.
+
+
+https://docs.netapp.com/us-en/cloud-manager-data-sense/task-deploy-compliance-onprem.html["Erfahren Sie mehr über die Installation von Data Sense auf einem einzelnen Host-Server und auf mehreren Hosts"].
+
+
+
 === 13. November 2022 (Version 1.17)
 
 
@@ -429,56 +451,31 @@ Wenn Sie eine Suche auf der Untersuchungsseite durchführen, können Sie unter �
 
 
 
-=== 7. August 2022 (Version 1.15)
-
-
-
-==== Fünf neue Arten von personenbezogenen Daten aus Neuseeland werden durch Data Sense identifiziert
-
-Data Sense kann Dateien identifizieren und kategorisieren, die die folgenden Datentypen enthalten:
-
-* Kontonummer Der Neuseeländischen Bank
-* Neuseeland Führerschein Nummer
-* Neuseeland-IRD-Nummer (Steuernummer)
-* Neuseeland NHI (National Health Index) Nummer 
-* Neuseeländische Passnummer
-
-
-link:reference-private-data-categories.html#types-of-personal-data["Sehen Sie alle Arten von personenbezogenen Daten an, die Data Sense in Ihren Daten identifizieren kann"].
-
-
-
-==== Möglichkeit, eine Breadcrumb-Datei hinzuzufügen, um anzugeben, warum eine Datei verschoben wurde
-
-Wenn Sie die Funktion „Data Sense“ verwenden, um Quelldateien in eine NFS-Freigabe zu verschieben, können Sie nun eine Breadcrumb-Datei an dem Speicherort der verschobenen Datei belassen. Eine Breadcrumb-Datei hilft Ihren Benutzern zu verstehen, warum eine Datei vom ursprünglichen Speicherort verschoben wurde. Für jede verschobene Datei erstellt das System eine Breadcrumb-Datei im Quellspeicherort mit dem Namen `<filename>-breadcrumb-<date>.txt` Um den Speicherort anzuzeigen, an dem die Datei verschoben wurde, und den Benutzer, der die Datei verschoben hat. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share["Weitere Informationen ."^].
-
-
-
-==== Personenbezogene Daten und sensible personenbezogene Daten in Ihren Verzeichnissen werden in Untersuchungsergebnissen angezeigt
-
-Auf der Seite „Datenuntersuchung“ werden nun Ergebnisse für persönliche Daten und sensible personenbezogene Daten in Ihren Verzeichnissen (Ordner und Freigaben) angezeigt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#viewing-files-that-contain-personal-data["Hier sehen Sie ein Beispiel"^].
-
-
-
-==== Zeigen Sie den Status an, wie viele Volumes, Buckets usw. erfolgreich klassifiziert wurden
-
-Wenn Sie sich die einzelnen Repositorys ansehen, die Data Sense verwenden (Volumes, Buckets usw.), sehen Sie jetzt, wie viele Daten gescannt wurden und wie viele als „klassifiziert“ wurden. Die Klassifizierung dauert länger, wenn für alle Daten die vollständige KI-Identifizierung durchgeführt wird. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#viewing-the-scan-status-for-your-repositories["Lesen Sie, wie Sie diese Informationen anzeigen"^].
-
-
-
-==== Jetzt können Sie benutzerdefinierte Muster hinzufügen, die Data Sense in Ihren Daten identifiziert
-
-Es gibt zwei Möglichkeiten, wie Sie benutzerdefinierte "persönliche Daten" hinzufügen können, die Data Sense in zukünftigen Scans identifizieren wird. So haben Sie einen vollständigen Überblick darüber, wo sich potenziell sensible Daten in den Dateien Ihres Unternehmens befinden.
-
-* Sie können benutzerdefinierte Schlüsselwörter aus einer Textdatei hinzufügen.
-* Sie können ein persönliches Muster mit einem regulären Ausdruck (regex) hinzufügen.
-
-
-Diese Schlüsselwörter und Muster werden den bereits vorhandenen vordefinierten Mustern hinzugefügt, die Data Sense verwendet. Die Ergebnisse werden im Abschnitt Persönliche Muster angezeigt. https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-data-fusion.html["Weitere Informationen ."^].
-
-
-
 == Cloud-Synchronisierung
+
+
+
+=== 11 Dezember 2022
+
+
+
+==== Verzeichnisse nach Namen filtern
+
+Für Synchronisierungsbeziehungen steht jetzt eine neue *Ausschließverzeichnisnamen*-Einstellung zur Verfügung. Benutzer können maximal 15 Verzeichnisnamen aus ihrer Synchronisierung herausfiltern. Die Verzeichnisse .Copy-Offload, .Snapshot, ~Snapshot sind standardmäßig ausgeschlossen.
+
+https://docs.netapp.com/us-en/cloud-manager-sync/task-creating-relationships.html#settings["Erfahren Sie mehr über die Einstellung „Verzeichnisnamen ausschließen“"].
+
+
+
+==== Zusätzliche Unterstützung für Amazon S3 und ONTAP S3 Storage
+
+Cloud Sync unterstützt jetzt zusätzliche Synchronisierungsbeziehungen für AWS S3 und ONTAP S3 Storage:
+
+* AWS S3 zu ONTAP S3 Storage
+* ONTAP S3 Storage zu AWS S3
+
+
+https://docs.netapp.com/us-en/cloud-manager-sync/reference-supported-relationships.html["Weitere Informationen zu unterstützten Synchronisierungsbeziehungen"].
 
 
 
@@ -719,6 +716,16 @@ Lizenzen für Cloud-Tiering können jetzt von Ihren Clustern in MetroCluster Kon
 
 
 
+=== Bis 8. Dezember 2022
+
+
+
+==== Cloud Volumes ONTAP 9.12.1
+
+BlueXP kann jetzt Cloud Volumes ONTAP 9.12.1 implementieren und verwalten, was auch Unterstützung für neue Funktionen und zusätzliche Regionen von Cloud-Providern umfasst.https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes["Erfahren Sie mehr über die neuen Funktionen in dieser Version von Cloud Volumes ONTAP"^]
+
+
+
 === Bis 4. Dezember 2022
 
 Die folgenden Änderungen wurden mit der Version 3.9.24 des Connectors eingeführt.
@@ -737,72 +744,17 @@ Die Region Israel wird nun in Google Cloud für Cloud Volumes ONTAP und der Conn
 
 
 
-=== 6. November 2022
+=== 15. November 2022
 
 Die folgenden Änderungen wurden mit der Version 3.9.23 des Connectors eingeführt.
 
 
 
-==== Verschieben von Ressourcengruppen in Azure
+==== ONTAP S3 Lizenz in GCP
 
-Sie können nun eine Arbeitsumgebung innerhalb desselben Azure Abonnements von einer Ressourcengruppe auf eine andere Ressourcengruppe in Azure verschieben.
+Eine ONTAP S3 Lizenz ist jetzt auf neuen und vorhandenen Cloud Volumes ONTAP Systemen mit Version 9.12.1 oder höher in der Google Cloud Platform enthalten.
 
-Weitere Informationen finden Sie unter link:https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-moving-resource-groups-azure.html["Verschieben von Ressourcengruppen"].
-
-
-
-==== NDMP-Kopie-Zertifizierung
-
-NDMP-Copy ist jetzt für die Verwendung mit Cloud Volume ONTAP zertifiziert.
-
-Weitere Informationen zum Konfigurieren und Verwenden von NDMP finden Sie unter https://docs.netapp.com/us-en/ontap/ndmp/index.html["NDMP-Konfiguration – Überblick"].
-
-
-
-==== Unterstützung der gemanagten Festplattenverschlüsselung für Azure
-
-Es wurde eine neue Azure-Berechtigung hinzugefügt, mit der Sie nun alle verwalteten Festplatten bei der Erstellung verschlüsseln können.
-
-Weitere Informationen zu dieser neuen Funktion finden Sie unter https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-set-up-azure-encryption.html["Cloud Volumes ONTAP einrichten, um einen vom Kunden gemanagten Schlüssel in Azure zu verwenden"].
-
-
-
-=== 18. September 2022
-
-Die folgenden Änderungen wurden mit der Version 3.9.22 des Connectors eingeführt.
-
-
-
-==== Verbesserungen für Digital Wallet
-
-* Das Digital Wallet zeigt jetzt eine Zusammenfassung des optimierten I/O-Lizenzpakets und der bereitgestellten WORM-Kapazität für Cloud Volumes ONTAP-Systeme auf Ihrem Konto an.
-+
-Mit diesen Angaben können Sie besser verstehen, wie abgerechnet wird und ob Sie zusätzliche Kapazität erwerben müssen.
-
-+
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html["Erfahren Sie, wie Sie die verbrauchte Kapazität in Ihrem Konto anzeigen"].
-
-* Jetzt können Sie von einer Lademethode zur optimierten Lademethode wechseln.
-+
-https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-capacity-licenses.html["Erfahren Sie, wie Sie Lademethoden ändern können"].
-
-
-
-
-
-==== Optimierte Kosten und Performance
-
-Sie können jetzt die Kosten und Leistung eines Cloud Volumes ONTAP-Systems direkt aus dem Canvas optimieren.
-
-Nachdem Sie eine Arbeitsumgebung ausgewählt haben, können Sie die Option *Kosten & Leistung optimieren* wählen, um den Instanztyp für Cloud Volumes ONTAP zu ändern. Die Auswahl einer kleineren Instanz kann zur Senkung der Kosten beitragen, während Sie durch einen Wechsel zu einer größeren Instanz die Performance optimieren können.
-
-image:https://raw.githubusercontent.com/NetAppDocs/cloud-manager-cloud-volumes-ontap/main/media/screenshot-optimize-cost-performance.png["Ein Screenshot der Option Optimize Cost  Amp; Performance, die auf dem Bildschirm verfügbar ist, nachdem Sie eine Arbeitsumgebung ausgewählt haben."]
-
-
-
-==== AutoSupport-Benachrichtigungen
-
-BlueXP generiert jetzt eine Benachrichtigung, wenn ein Cloud Volumes ONTAP System keine AutoSupport-Nachrichten senden kann. Die Benachrichtigung enthält einen Link zu Anweisungen, mit denen Sie Netzwerkprobleme beheben können.
+https://docs.netapp.com/us-en/ontap/object-storage-management/index.html["Lesen Sie, wie Sie S3-Objekt-Storage-Services in ONTAP konfigurieren und managen"^]
 
 
 
@@ -1073,6 +1025,22 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-administer-advance
 
 
 
+=== Bis 11. Dezember 2022
+
+
+
+==== Neue Empfohlene Maßnahmen wurden zur Ransomware Protection Score Panel hinzugefügt
+
+Für die folgenden Ransomware-Sicherungsprobleme in Ihren Storage-Systemen werden nun zwei neue Empfehlungen angezeigt:
+
+* _Berechtigungen für X-sensible Objekte mit breiten Berechtigungen verkleinern_ - in Ihren Datenquellen wurden sensible Dateien mit offenen Berechtigungen gefunden
+* _Patch X Open CVEs Across Y-Datenquellen_ - Unpatched CVEs wurden auf Ihren ONTAP-Systemen gefunden
+
+
+Sie können diese Aktionen in der UI auswählen und dann den Workflow befolgen, um die zugrunde liegenden Probleme zu lösen. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#list-of-recommended-actions["Siehe die Liste aller empfohlenen Maßnahmen"].
+
+
+
 === 13. November 2022
 
 
@@ -1090,22 +1058,6 @@ Diese beiden neuen Felder arbeiten zusammen, um zu ermitteln, wie stabil Ihre Da
 ==== Neues Panel zur Anzeige von Ransomware-Vorfällen auf Ihren Clustern erkannt
 
 Der Bereich _Ransomware Incidents_ zeigt Ransomware-Angriffe auf Ihren Systemen. Aktuell werden ONTAP Cluster vor Ort unterstützt, auf denen Autonomous Ransomware Protection (ARP) ausgeführt wird. ARP nutzt Workload-Analysen in NAS-Umgebungen (NFS und SMB), um ungewöhnliche Aktivitäten, die auf einen Ransomware-Angriff hinweisen könnten, proaktiv zu erkennen und zu warnen. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#ransomware-incidents-detected-on-your-systems["Hier erfahren Sie mehr"^].
-
-
-
-=== 7. August 2022
-
-
-
-==== Neues Panel zur Anzeige von Sicherheitsschwachstellen auf Ihren Clustern
-
-Das Fenster _Speichersystemschwachstellen_ zeigt die Gesamtzahl der hohen, mittleren und niedrigen Sicherheitslücken, die das Active IQ Digital Advisor Tool auf jedem Ihrer ONTAP Cluster gefunden hat. Hohe Schwachstellen sollten sofort untersucht werden, um sicherzustellen, dass Ihre Systeme nicht für Angriffe geöffnet sind. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#storage-system-vulnerabilities["Weitere Informationen finden Sie hier"^].
-
-
-
-==== Neues Fenster zum Anzeigen unveränderlicher gescannter Dateien
-
-Die_kritische Unveränderlichkeit_Unveränderlichkeit_zeigt die Anzahl der Elemente in Ihrer Arbeitsumgebung, die dank der ONTAP SnapLock Technologie vor Modifizierung und Löschung in WORM-Storage geschützt sind. So sehen Sie, wie viele Ihrer Daten eine unveränderliche Kopie haben, damit Sie ein besseres Verständnis Ihrer Backup- und Recovery-Pläne gegen Ransomware erhalten. https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#data-in-your-volumes-that-are-being-protected-using-snaplock["Weitere Informationen finden Sie hier"^].
 
 
 
