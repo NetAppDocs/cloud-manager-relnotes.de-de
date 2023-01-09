@@ -490,7 +490,7 @@
 <p class="page-details">
   
     
-    <time datetime="2023-01-04 18:21:15 +0000">01/04/2023</time>
+    <time datetime="2023-01-09 16:30:37 +0000">01/09/2023</time>
     
   
 
@@ -531,18 +531,18 @@
 </li>
 <li><a href="#cloud-backup">Cloud-Backup</a>
 <ul class="sectlevel2">
+<li><a href="#9-januar-2023">9 Januar 2023</a></li>
 <li><a href="#bis-19-dezember-2022">Bis 19. Dezember 2022</a></li>
 <li><a href="#bis-6-dezember-2022">Bis 6. Dezember 2022</a></li>
 <li><a href="#november-2022-2">November 2022</a></li>
 <li><a href="#28-september-2022">28. September 2022</a></li>
-<li><a href="#19-september-2022">19. September 2022</a></li>
 </ul>
 </li>
 <li><a href="#cloud-daten-sinnvoll">Cloud-Daten Sinnvoll</a>
 <ul class="sectlevel2">
+<li><a href="#9-januar-2023-version-1-19">9. Januar 2023 (Version 1.19)</a></li>
 <li><a href="#11-dezember-2022-version-1-18">11. Dezember 2022 (Version 1.18)</a></li>
 <li><a href="#13-november-2022-version-1-17">13. November 2022 (Version 1.17)</a></li>
-<li><a href="#6-september-2022-version-1-16">6. September 2022 (Version 1.16)</a></li>
 </ul>
 </li>
 <li><a href="#cloud-synchronisierung">Cloud-Synchronisierung</a>
@@ -559,7 +559,7 @@
 <ul class="sectlevel2">
 <li><a href="#bis-6-dezember-2022-2">Bis 6. Dezember 2022</a></li>
 <li><a href="#6-november-2022-2">6. November 2022</a></li>
-<li><a href="#19-september-2022-2">19. September 2022</a></li>
+<li><a href="#19-september-2022">19. September 2022</a></li>
 </ul>
 </li>
 <li><a href="#cloud-volumes-ontap">Cloud Volumes ONTAP</a>
@@ -614,9 +614,9 @@
 </li>
 <li><a href="#schutz-vor-ransomware">Schutz Vor Ransomware</a>
 <ul class="sectlevel2">
+<li><a href="#9-januar-2023-2">9 Januar 2023</a></li>
 <li><a href="#bis-11-dezember-2022">Bis 11. Dezember 2022</a></li>
 <li><a href="#13-november-2022">13. November 2022</a></li>
-<li><a href="#6-september-2022">6. September 2022</a></li>
 </ul>
 </li>
 <li><a href="#replizierung">Replizierung</a>
@@ -841,6 +841,36 @@
 <h2 id="cloud-backup">Cloud-Backup</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="9-januar-2023">9 Januar 2023</h3>
+<div class="sect3">
+<h4 id="möglichkeit-ältere-backup-dateien-in-aws-s3-archiv-storage-von-storagegrid-systemen-zu-verschieben">Möglichkeit, ältere Backup-Dateien in AWS S3 Archiv-Storage von StorageGRID Systemen zu verschieben</h4>
+<div class="paragraph">
+<p>Jetzt können Sie ältere Backup-Dateien von StorageGRID Systemen auf Archiv-Storage in AWS S3 verschieben. So können Sie auf Ihren StorageGRID Systemen Speicherplatz freigeben und Kosten sparen, indem Sie eine kostengünstige Storage-Klasse für alte Backup-Dateien verwenden. Zudem stehen für das Tiering von Backups AWS S3 Glacier oder S3 Glacier Deep Archive Storage zur Verfügung.</p>
+</div>
+<div class="paragraph">
+<p>Diese Funktion ist verfügbar, wenn Ihr Cluster ONTAP 9.12.1 oder höher verwendet und Ihr StorageGRID System mindestens 11.3 verwendet. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-private-cloud.html#preparing-to-archive-older-backup-files-to-public-cloud-storage">"Hier erfahren Sie mehr"</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="möglichkeit-ihre-eigenen-vom-kunden-gemanagten-schlüssel-zur-datenverschlüsselung-auf-google-cloud-auszuwählen">Möglichkeit, Ihre eigenen vom Kunden gemanagten Schlüssel zur Datenverschlüsselung auf Google Cloud auszuwählen</h4>
+<div class="paragraph">
+<p>Beim Backup von Daten aus Ihren ONTAP-Systemen auf Google Cloud Storage können Sie nun im Aktivierungsassistenten Ihre eigenen, vom Kunden gemanagten Schlüssel zur Datenverschlüsselung auswählen und nicht die von Google gemanagten Standardschlüssel verwenden. Legen Sie zuerst die von Kunden gemanagten Schlüssel fest und geben Sie bei der Aktivierung von Cloud Backup Details ein.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="die-rolle-storage-admin-wird-für-das-servicekonto-zur-erstellung-von-backups-in-google-cloud-storage-nicht-mehr-benötigt">Die Rolle „Storage-Admin“ wird für das Servicekonto zur Erstellung von Backups in Google Cloud Storage nicht mehr benötigt</h4>
+<div class="paragraph">
+<p>In früheren Versionen war die Rolle „Storage Admin“ für das Service-Konto erforderlich, mit dem Cloud Backup auf Google Cloud Storage Buckets zugreifen kann. Jetzt können Sie eine benutzerdefinierte Rolle mit einem reduzierten Satz von Berechtigungen erstellen, die dem Servicekonto zugewiesen werden sollen. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html#preparing-google-cloud-storage-for-backups">"So bereiten Sie Ihren Google Cloud Storage auf Backups vor"</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="die-seite-ergebnisse-der-jobüberwachung-kann-als-csv-bericht-heruntergeladen-werden">Die Seite Ergebnisse der Jobüberwachung kann als CSV-Bericht heruntergeladen werden</h4>
+<div class="paragraph">
+<p>Nachdem Sie die Seite Jobüberwachung gefiltert haben, um die gewünschten Jobs und Aktionen anzuzeigen, können Sie nun eine .csv-Datei dieser Daten generieren und herunterladen. Anschließend können Sie die Informationen analysieren oder den Bericht an andere Personen in Ihrem Unternehmen senden. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-monitor-backup-jobs.html#download-job-monitoring-results-as-a-report">"Erfahren Sie, wie Sie einen Bericht zur Jobüberwachung erstellen"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="bis-19-dezember-2022">Bis 19. Dezember 2022</h3>
 <div class="sect3">
 <h4 id="erweiterungen-für-cloud-backup-für-applikationen">Erweiterungen für Cloud Backup für Applikationen</h4>
@@ -891,7 +921,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="erweiterungen-für-cloud-backup">Erweiterungen für Cloud Backup</h4>
+<h4 id="verbesserungen-bei-cloud-backup-für-virtual-machines">Verbesserungen bei Cloud Backup für Virtual Machines</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1058,7 +1088,7 @@
 <p>Auf der Seite Jobdetails werden alle untergeordneten Jobs angezeigt, die ausgeführt werden, um den Hauptjob abzuschließen.</p>
 </li>
 <li>
-<p>Die Seite wird automatisch alle 15 Minuten aktualisiert, so dass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Und Sie können auf die Schaltfläche <strong>Aktualisieren</strong> klicken, um die Seite sofort zu aktualisieren.</p>
+<p>Die Seite wird automatisch alle 15 Minuten aktualisiert, sodass Sie immer die aktuellsten Ergebnisse des Jobstatus sehen. Und Sie können auf die Schaltfläche <strong>Aktualisieren</strong> klicken, um die Seite sofort zu aktualisieren.</p>
 </li>
 </ul>
 </div>
@@ -1104,7 +1134,7 @@
 </div>
 </div>
 <div class="sect3">
-<h4 id="verbesserungen-bei-cloud-backup-für-virtual-machines">Verbesserungen bei Cloud Backup für Virtual Machines</h4>
+<h4 id="verbesserungen-bei-cloud-backup-für-virtual-machines-2">Verbesserungen bei Cloud Backup für Virtual Machines</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1117,47 +1147,36 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="19-september-2022">19. September 2022</h3>
-<div class="sect3">
-<h4 id="datalock-und-ransomware-schutz-können-für-backup-dateien-in-storagegrid-systemen-konfiguriert-werden">DataLock und Ransomware-Schutz können für Backup-Dateien in StorageGRID Systemen konfiguriert werden</h4>
-<div class="paragraph">
-<p>In der letzten Version wurden <em>DataLock und Ransomware Protection</em> für Backups eingeführt, die in Amazon S3 Buckets gespeichert sind. Diese Version erweitert den Support für Backup-Dateien, die in StorageGRID Systemen gespeichert sind. Wenn Ihr Cluster ONTAP 9.11.1 oder höher verwendet und auf Ihrem StorageGRID System Version 11.6.0.3 oder höher ausgeführt wird, ist diese neue Backup-Policy-Option verfügbar. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-cloud-backup-policies.html#datalock-and-ransomware-protection" target="_blank" rel="noopener">"Erfahren Sie mehr darüber, wie Sie mit DataLock- und Ransomware-Schutz Ihre Backups schützen können"</a>.</p>
-</div>
-<div class="paragraph">
-<p>Beachten Sie, dass Sie einen Connector mit Version 3.9.22 oder neuer verwenden müssen. Der Connector muss in Ihrem Haus installiert werden und kann auf einer Website mit oder ohne Internetzugang installiert werden.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="die-wiederherstellung-auf-ordnerebene-ist-jetzt-über-ihre-sicherungsdateien-verfügbar">Die Wiederherstellung auf Ordnerebene ist jetzt über Ihre Sicherungsdateien verfügbar</h4>
-<div class="paragraph">
-<p>Jetzt können Sie einen Ordner aus einer Sicherungsdatei wiederherstellen, wenn Sie Zugriff auf alle Dateien in diesem Ordner benötigen (Verzeichnis oder Freigabe). Das Wiederherstellen eines Ordners ist wesentlich effizienter als das Wiederherstellen eines gesamten Volumes. Diese Funktion steht für Wiederherstellungsvorgänge mit der Methode „Durchsuchen und Wiederherstellen“ und der Methode „Suchen und Wiederherstellen“ bei Verwendung von ONTAP 9.11.1 oder höher zur Verfügung. Zu diesem Zeitpunkt können Sie nur einen einzigen Ordner auswählen und wiederherstellen, und nur Dateien aus diesem Ordner werden wiederhergestellt - keine Unterordner oder Dateien in Unterordnern, wiederhergestellt.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="restores-auf-dateiebene-stehen-nun-für-backups-zur-verfügung-die-in-archiv-storage-verschoben-wurden">Restores auf Dateiebene stehen nun für Backups zur Verfügung, die in Archiv-Storage verschoben wurden</h4>
-<div class="paragraph">
-<p>Früher war es möglich, Volumes nur von Backup-Dateien wiederherzustellen, die in Archiv-Storage verschoben wurden (nur AWS und Azure). Sie können nun einzelne Dateien aus diesen archivierten Backup-Dateien wiederherstellen. Diese Funktion steht für Wiederherstellungsvorgänge mit der Methode „Durchsuchen und Wiederherstellen“ und der Methode „Suchen und Wiederherstellen“ bei Verwendung von ONTAP 9.11.1 oder höher zur Verfügung.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="wiederherstellung-auf-dateiebene-bietet-jetzt-die-möglichkeit-die-ursprüngliche-quelldatei-zu-überschreiben">Wiederherstellung auf Dateiebene bietet jetzt die Möglichkeit, die ursprüngliche Quelldatei zu überschreiben</h4>
-<div class="paragraph">
-<p>In der Vergangenheit wurde eine auf das ursprüngliche Volume wiederhergestellte Datei immer als neue Datei mit dem Präfix "Restore_&lt;file_Name&gt;" wiederhergestellt. Nun können Sie die ursprüngliche Quelldatei überschreiben, wenn Sie die Datei an den ursprünglichen Speicherort auf dem Volume wiederherstellen. Diese Funktion steht für Wiederherstellungsvorgänge sowohl mit der Methode Durchsuchen und Wiederherstellen als auch mit der Methode Suchen und Wiederherstellen zur Verfügung.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="per-drag-and-drop-können-sie-cloud-backups-in-storagegrid-systemen-aktivieren">Per Drag-and-Drop können Sie Cloud-Backups in StorageGRID-Systemen aktivieren</h4>
-<div class="paragraph">
-<p>Wenn der <a href="https://docs.netapp.com/us-en/cloud-manager-storagegrid/task-discover-storagegrid.html" target="_blank" rel="noopener">"StorageGRID"</a> Ziel für Ihre Backups ist als Arbeitsumgebung auf dem Canvas vorhanden, Sie können Ihre On-Prem ONTAP Arbeitsumgebung auf das Ziel ziehen, um den Cloud Backup-Setup-Assistenten zu starten.</p>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="cloud-daten-sinnvoll">Cloud-Daten Sinnvoll</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="9-januar-2023-version-1-19">9. Januar 2023 (Version 1.19)</h3>
+<div class="sect3">
+<h4 id="auf-der-seite-datenuntersuchung-stehen-drei-neue-filter-zur-verfügung">Auf der Seite „Datenuntersuchung“ stehen drei neue Filter zur Verfügung</h4>
+<div class="paragraph">
+<p>Es stehen neue Filter zur Verfügung, um die Ergebnisse zu verfeinern, die auf der Seite „Datenuntersuchung“ angezeigt werden:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Der Filter „Anzahl der Benutzer mit Zugriff“ zeigt an, welche Dateien und Ordner für eine bestimmte Anzahl von Benutzern geöffnet sind. Sie können einen Zahlenbereich auswählen, um die Ergebnisse zu verfeinern, z. B. um zu sehen, auf welche Dateien 51-100 Benutzer zugreifen können.</p>
+</li>
+<li>
+<p>Mit den Filtern „erstellte Zeit“, „entdeckte Zeit“, „Zuletzt geändert“ und „Letzter Zugriff“ können Sie jetzt einen benutzerdefinierten Datumsbereich erstellen, anstatt nur einen vordefinierten Zeitraum von Tagen auszuwählen. Sie können beispielsweise nach Dateien mit einer "Erstellungszeit" "älter als 6 Monate" oder mit einem "Letzter geändert" Datum innerhalb der "letzten 10 Tage" suchen.</p>
+</li>
+<li>
+<p>Mit dem Filter „Dateipfad“ können Sie nun Pfade festlegen, die Sie aus den gefilterten Abfrageergebnissen ausschließen möchten. Wenn Sie Pfade eingeben, um bestimmte Daten einzuschließen und auszuschließen, findet Data Sense zuerst alle Dateien in den enthaltenen Pfaden, dann werden Dateien aus ausgeschlossenen Pfaden entfernt und die Ergebnisse angezeigt.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page">"Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"</a>.</p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="11-dezember-2022-version-1-18">11. Dezember 2022 (Version 1.18)</h3>
 <div class="sect3">
@@ -1220,39 +1239,6 @@
 <h4 id="vor-dem-start-der-installation-führen-die-vor-ort-installationsprogramme-nun-eine-vorprüfung-durch">Vor dem Start der Installation führen die vor-Ort-Installationsprogramme nun eine Vorprüfung durch</h4>
 <div class="paragraph">
 <p>Bei der Installation von Data Sense auf einem Linux-System überprüft der Installer, ob das System alle erforderlichen Anforderungen (CPU, RAM, Kapazität, Netzwerk usw.) erfüllt, bevor die eigentliche Installation gestartet wird. Dies hilft beim Auffangen von Problemen <strong>vor</strong> verbringen Sie Zeit mit der Installation.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="6-september-2022-version-1-16">6. September 2022 (Version 1.16)</h3>
-<div class="sect3">
-<h4 id="fähigkeit-ein-repository-sofort-erneut-zu-scannen-um-änderungen-in-dateien-widerzuspiegeln">Fähigkeit, ein Repository sofort erneut zu scannen, um Änderungen in Dateien widerzuspiegeln</h4>
-<div class="paragraph">
-<p>Wenn Sie ein bestimmtes Repository sofort erneut scannen müssen, damit Änderungen im System angezeigt werden, können Sie das Repository auswählen und erneut scannen. So können Sie das erneute Scannen bestimmter Daten vor anderen Daten priorisieren. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-repo-scanning.html#rescanning-data-for-an-existing-repository" target="_blank" rel="noopener">"Lesen Sie, wie Sie ein Verzeichnis erneut scannen"</a>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="neuer-filter-für-den-status-der-datensense-suche-auf-der-seite-datenuntersuchung">Neuer Filter für den Status der Datensense-Suche auf der Seite Datenuntersuchung</h4>
-<div class="paragraph">
-<p>Mit dem Filter „Analysestatus“ können Sie die Dateien auflisten, die sich in einer bestimmten Phase des Datensense-Scans befinden. Sie können eine Option auswählen, um die Liste der Dateien anzuzeigen, die <strong>ausstehender erster Scan</strong>, <strong>Abgeschlossen</strong> gescannt werden, <strong>ausstehender Rescan</strong> oder die <strong>nicht erfolgreich</strong> gescannt werden müssen.</p>
-</div>
-<div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-controlling-private-data.html#filtering-data-in-the-data-investigation-page" target="_blank" rel="noopener">"Sehen Sie sich die Liste aller Filter an, mit denen Sie Ihre Daten untersuchen können"</a>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="die-betroffenen-werden-nun-als-teil-von-personenbezogenen-daten-in-scans-gefunden">Die Betroffenen werden nun als Teil von "personenbezogenen Daten" in Scans gefunden</h4>
-<div class="paragraph">
-<p>Data Sense erkennt nun Betroffenen als Teil der im Compliance Dashboard angezeigten persönlichen Ergebnisse. Darüber hinaus können Sie bei einer Suche auf der Untersuchungsseite unter „personenbezogene Daten“ „Betroffene“ auswählen, um nur Dateien anzuzeigen, die betroffene Personen enthalten.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="datensense-breadcrumb-dateien-werden-jetzt-als-teil-von-kategorien-in-scans-gefunden-betrachtet">Datensense-Breadcrumb-Dateien werden jetzt als Teil von "Kategorien" in Scans gefunden betrachtet</h4>
-<div class="paragraph">
-<p>Data Sense erkennt jetzt Breadcrumb-Dateien als Teil der Kategorien, die im Compliance Dashboard angezeigt werden. Dies sind Dateien, die Data Sense beim Verschieben von Dateien vom Quellspeicherort in eine NFS-Freigabe erstellt. <a href="https://docs.netapp.com/us-en/cloud-manager-data-sense/task-managing-highlights.html#moving-source-files-to-an-nfs-share" target="_blank" rel="noopener">"Erfahren Sie mehr darüber, wie Breadcrumb-Dateien erstellt werden"</a>.</p>
-</div>
-<div class="paragraph">
-<p>Wenn Sie eine Suche auf der Untersuchungsseite durchführen, können Sie unter „Kategorie“ „Datensense Breadcrumbs“ „Data Sense Breadcrumb“ auswählen, um nur Daten Sense Breadcrumb-Dateien anzuzeigen.</p>
 </div>
 </div>
 </div>
@@ -1594,7 +1580,7 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="19-september-2022-2">19. September 2022</h3>
+<h3 id="19-september-2022">19. September 2022</h3>
 <div class="sect3">
 <h4 id="der-tiering-assistent-ermöglicht-ihnen-die-konfiguration-von-aws-privatelink-beim-tiering-in-s3-speicher">Der Tiering-Assistent ermöglicht Ihnen die Konfiguration von AWS PrivateLink beim Tiering in S3-Speicher</h4>
 <div class="paragraph">
@@ -1974,6 +1960,15 @@
 <h2 id="schutz-vor-ransomware">Schutz Vor Ransomware</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="9-januar-2023-2">9 Januar 2023</h3>
+<div class="sect3">
+<h4 id="unterstützung-wurde-hinzugefügt-um-ransomware-schutz-benachrichtigungen-per-e-mail-und-im-notification-center-zu-erhalten">Unterstützung wurde hinzugefügt, um Ransomware-Schutz-Benachrichtigungen per E-Mail und im Notification Center zu erhalten</h4>
+<div class="paragraph">
+<p>Ransomware Protection ist in den BlueXP Notification Service integriert. Sie können Ransomware-Schutzbenachrichtigungen anzeigen, indem Sie in der BlueXP-Menüleiste auf die Benachrichtigungsglocke klicken. Sie können BlueXP auch so konfigurieren, dass Benachrichtigungen per E-Mail als Benachrichtigungen gesendet werden, damit Sie auch dann über wichtige Systemaktivitäten informiert werden können, wenn Sie nicht im System angemeldet sind. Die E-Mail kann an alle Empfänger gesendet werden, die auf Ransomware-Warnungen achten müssen. <a href="https://docs.netapp.com/us-en/cloud-manager-ransomware/task-monitor-ransomware-alerts.html">"Erfahren Sie, wie"</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="bis-11-dezember-2022">Bis 11. Dezember 2022</h3>
 <div class="sect3">
 <h4 id="neue-empfohlene-maßnahmen-wurden-zur-ransomware-protection-score-panel-hinzugefügt">Neue Empfohlene Maßnahmen wurden zur Ransomware Protection Score Panel hinzugefügt</h4>
@@ -2001,15 +1996,6 @@
 <h4 id="neue-panels-zur-anzeige-ihrer-gesamten-ransomware-schutzpunktzahl-und-empfohlenen-maßnahmen">Neue Panels zur Anzeige Ihrer gesamten Ransomware-Schutzpunktzahl und empfohlenen Maßnahmen</h4>
 <div class="paragraph">
 <p>Das <em>Ransomware Protection Score</em> Panel zeigt die Gesamtpunktzahl und die Bereiche der Cybersicherheit, in denen potenzielle Probleme bestehen. Im Panel <em>Recommended Actions</em> werden die möglichen Maßnahmen aufgeführt, die Sie ergreifen können, um Ihre Widerstandsfähigkeit gegen einen Ransomware-Angriff zu verbessern, und es wird ein Link zur Untersuchung der Probleme angezeigt, damit Sie die Maßnahmen gegebenenfalls anwenden können. Diese beiden neuen Felder arbeiten zusammen, um zu ermitteln, wie stabil Ihre Daten bei einem Ransomware-Angriff ist und was Sie tun können, um Ihren Wert zu verbessern. <a href="https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#ransomware-protection-score-and-recommended-actions" target="_blank" rel="noopener">"Hier erfahren Sie mehr"</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="6-september-2022">6. September 2022</h3>
-<div class="sect3">
-<h4 id="neues-panel-zur-anzeige-von-ransomware-vorfällen-auf-ihren-clustern-erkannt">Neues Panel zur Anzeige von Ransomware-Vorfällen auf Ihren Clustern erkannt</h4>
-<div class="paragraph">
-<p>Der Bereich <em>Ransomware Incidents</em> zeigt Ransomware-Angriffe auf Ihren Systemen. Aktuell werden ONTAP Cluster vor Ort unterstützt, auf denen Autonomous Ransomware Protection (ARP) ausgeführt wird. ARP nutzt Workload-Analysen in NAS-Umgebungen (NFS und SMB), um ungewöhnliche Aktivitäten, die auf einen Ransomware-Angriff hinweisen könnten, proaktiv zu erkennen und zu warnen. <a href="https://docs.netapp.com/us-en/cloud-manager-ransomware/task-analyze-ransomware-data.html#ransomware-incidents-detected-on-your-systems" target="_blank" rel="noopener">"Hier erfahren Sie mehr"</a>.</p>
 </div>
 </div>
 </div>
@@ -2104,7 +2090,7 @@
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2023 NetApp, Inc.</a>
             </li>
             <li class="n-footer__copyright-link">
               <a href="https://www.netapp.com/company/legal/terms-of-use/">Allgemeine Geschäftsbedingungen</a>
